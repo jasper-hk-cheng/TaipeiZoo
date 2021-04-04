@@ -11,13 +11,13 @@
         a:background="?attr/colorButtonNormal"
         a:theme="@style/ThemeOverlay.AppCompat.ActionBar"
 
-        app:layout_constraintBottom_toTopOf="@id/lvPlant"
+        app:layout_constraintBottom_toTopOf="@id/rvPlant"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
-        a:id="@+id/lvPlant"
+    <androidx.recyclerview.widget.RecyclerView
+        a:id="@+id/rvPlant"
         a:layout_width="0dp"
         a:layout_height="0dp"
 

@@ -14,14 +14,13 @@
         a:background="?attr/colorButtonNormal"
         a:theme="@style/ThemeOverlay.AppCompat.ActionBar"
 
-        app:layout_constraintBottom_toTopOf="@id/lvArena"
+        app:layout_constraintBottom_toTopOf="@id/rvArena"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!--TODO: to recycler view-->
-    <ListView
-        a:id="@+id/lvArena"
+    <androidx.recyclerview.widget.RecyclerView
+        a:id="@+id/rvArena"
         a:layout_width="0dp"
         a:layout_height="0dp"
 

@@ -6,6 +6,8 @@ import android.widget.AdapterView
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.cathay.banc.taipei.zoo.R
 import com.cathay.banc.taipei.zoo.adapter.ArenaAdapter
 import com.cathay.banc.taipei.zoo.contract.ZooContract
@@ -18,18 +20,13 @@ class MainActivity : AppCompatActivity(), ZooContract.IArenaView {
     /*
         views
      */
-    private lateinit var lvArenaList: ListView
     private lateinit var toolbar: Toolbar
+    private lateinit var rvArena: RecyclerView
 
     /*
         presenter
      */
     private val arenaPresenter = ArenaPresenter(this, this)
-
-    /*
-        adapters
-     */
-    private lateinit var arenaAdapter: ArenaAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,8 +45,8 @@ class MainActivity : AppCompatActivity(), ZooContract.IArenaView {
         toolbar.subtitle = getString(R.string.toolbar_subtitle)
         setSupportActionBar(toolbar)
         //
-        lvArenaList = findViewById(R.id.lvArena)
-        lvArenaList.onItemClickListener = onClickArenaLnr
+        rvArena = findViewById(R.id.rvArena)
+        rvArena.layoutManager = LinearLayoutManager(this)
     }
 
     private fun loadData() {
@@ -57,18 +54,6 @@ class MainActivity : AppCompatActivity(), ZooContract.IArenaView {
     }
 
     override fun onArenaListResult(arenaList: List<Arena>) {
-        //
-        arenaAdapter = ArenaAdapter(arenaList)
-        lvArenaList.adapter = arenaAdapter
-    }
-
-    private val onClickArenaLnr = AdapterView.OnItemClickListener { _, _, position, _ ->
-        val arena: Arena = arenaAdapter.getItem(position)
-        /*
-            intent
-         */
-        val intent = Intent(this@MainActivity, ArenaPlantFragmentActivity::class.java)
-        intent.putExtra(INTENT_EXTRA_KEY_ARENA, arena)
-        startActivity(intent)
+        rvArena.adapter = ArenaAdapter(arenaList)
     }
 }

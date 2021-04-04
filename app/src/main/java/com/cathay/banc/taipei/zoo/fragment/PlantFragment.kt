@@ -10,6 +10,8 @@ import android.widget.AdapterView
 import android.widget.ListView
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.cathay.banc.taipei.zoo.R
 import com.cathay.banc.taipei.zoo.activity.PlantActivity
 import com.cathay.banc.taipei.zoo.adapter.PlantAdapter
@@ -24,12 +26,7 @@ class PlantFragment : Fragment(), ZooContract.IPlantView {
         views
      */
     private lateinit var toolbar: Toolbar
-    private lateinit var lvPlant: ListView
-
-    /*
-        adapter
-     */
-    private lateinit var plantAdapter: PlantAdapter
+    private lateinit var rvPlant: RecyclerView
 
     /*
         presenter
@@ -46,7 +43,9 @@ class PlantFragment : Fragment(), ZooContract.IPlantView {
         val view: View = layoutInflater.inflate(R.layout.fragment_plant_list, container)
 
         toolbar = view.findViewById<Toolbar>(R.id.toolbar).apply { title = getString(R.string.plant_list_title) }
-        lvPlant = view.findViewById<ListView>(R.id.lvPlant).apply { onItemClickListener = onPlantItemClick }
+        //
+        rvPlant = view.findViewById(R.id.rvPlant)
+        rvPlant.layoutManager = LinearLayoutManager(context)
 
         return view
     }
@@ -58,17 +57,6 @@ class PlantFragment : Fragment(), ZooContract.IPlantView {
     }
 
     override fun onPlantListResult(plantList: List<Plant>) {
-        plantAdapter = PlantAdapter(plantList)
-        lvPlant.adapter = plantAdapter
-    }
-
-    private val onPlantItemClick = AdapterView.OnItemClickListener { _, _, position, _ ->
-        val plant: Plant = plantAdapter.getItem(position)
-        /*
-            intent
-         */
-        val intent = Intent(requireContext(), PlantActivity::class.java)
-        intent.putExtra(INTENT_EXTRA_KEY_PLANT, plant)
-        startActivity(intent)
+        rvPlant.adapter = PlantAdapter(plantList)
     }
 }
