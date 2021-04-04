@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:a="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    a:layout_width="match_parent"
+    a:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Guideline
+        a:id="@+id/guidelineH1"
+        a:layout_width="0dp"
+        a:layout_height="0dp"
+        a:orientation="horizontal"
+
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        a:id="@+id/guidelineH2"
+        a:layout_width="0dp"
+        a:layout_height="0dp"
+        a:orientation="horizontal"
+
+        app:layout_constraintGuide_percent="0.85" />
+
+    <androidx.constraintlayout.widget.Guideline
+        a:id="@+id/guidelineV1"
+        a:layout_width="0dp"
+        a:layout_height="0dp"
+        a:orientation="vertical"
+
+        app:layout_constraintGuide_percent="0.8" />
+
+    <ImageView
+        a:id="@+id/ivAvatar"
+        a:layout_width="0dp"
+        a:layout_height="0dp"
+        a:layout_marginHorizontal="@dimen/block_seam"
+        a:layout_marginTop="@dimen/block_seam"
+        a:layout_marginBottom="@dimen/block_seam_half"
+
+        app:layout_constraintBottom_toTopOf="@id/guidelineH1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        tools:src="@drawable/cordova_ios_72" />
+
+    <TextView
+        a:id="@+id/tvDescription"
+        a:layout_width="0dp"
+        a:layout_height="0dp"
+        a:paddingHorizontal="@dimen/block_seam"
+        a:paddingVertical="@dimen/block_seam_half"
+
+        app:layout_constraintBottom_toTopOf="@id/guidelineH2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guidelineH1"
+
+        tools:text="@string/testing_description" />
+
+    <TextView
+        a:id="@+id/tvInfo"
+        a:layout_width="0dp"
+        a:layout_height="0dp"
+        a:paddingHorizontal="@dimen/block_seam"
+        a:paddingVertical="@dimen/block_seam_half"
+
+        app:layout_constraintBottom_toTopOf="@id/tvCategory"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/guidelineV1"
+        app:layout_constraintTop_toBottomOf="@id/guidelineH2"
+
+        tools:text="@string/testing_info" />
+
+    <TextView
+        a:id="@+id/tvCategory"
+        a:layout_width="0dp"
+        a:layout_height="0dp"
+        a:paddingHorizontal="@dimen/block_seam"
+        a:paddingTop="@dimen/block_seam_half"
+        a:paddingBottom="@dimen/block_seam"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/guidelineV1"
+        app:layout_constraintTop_toBottomOf="@id/tvInfo"
+
+        tools:text="@string/testing_category" />
+
+    <TextView
+        a:id="@+id/tvOuterLink"
+        a:layout_width="0dp"
+        a:layout_height="0dp"
+        a:text="@string/arena_detail_hyperlink_label"
+        a:gravity="center"
+        a:textColor="@android:color/holo_blue_light"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/guidelineV1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guidelineH2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

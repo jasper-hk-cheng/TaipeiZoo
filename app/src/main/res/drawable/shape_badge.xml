@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:a="http://schemas.android.com/apk/res/android"
+    a:shape="rectangle">
+
+    <!--TODO remove-->
+    <!--<solid a:color="@android:color/holo_blue_dark" />-->
+
+    <!--<padding-->
+    <!--    a:bottom="@dimen/arena_info_padding_vertical"-->
+    <!--    a:left="@dimen/arena_info_padding_horizontal"-->
+    <!--    a:right="@dimen/arena_info_padding_horizontal"-->
+    <!--    a:top="@dimen/arena_info_padding_vertical" />-->
+
+    <!--<corners a:radius="20dp" />-->
+</shape>

@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">台北市立動物園</string>
+    <string name="toolbar_subtitle">僅為面試 side project 使用</string>
+
+    <string name="arena_detail_hyperlink_label">在網頁開啟</string>
+    <string name="plant_list_title">植物資料</string>
+
+    <string name="plant_label_alias">別名</string>
+    <string name="plant_label_brief">簡介</string>
+    <string name="plant_label_feature">辨認方式</string>
+    <string name="plant_label_function_application">功能性</string>
+    <string name="plant_label_update">最後更新</string>
+
+    <!--for test only-->
+    <string name="testing_title">兩棲爬蟲動物館</string>
+    <string name="testing_description">本館以不同的生態系...</string>
+    <string name="testing_info">每月第三個週一休館</string>
+    <string name="testing_category">室內區</string>
+    <string name="testing_outer_link">https://www.google.com.tw</string>
+</resources>
