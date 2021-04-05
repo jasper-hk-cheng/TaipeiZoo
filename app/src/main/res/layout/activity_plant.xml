@@ -34,6 +34,8 @@
         a:id="@+id/toolbar"
         a:layout_width="0dp"
         a:layout_height="?attr/actionBarSize"
+        a:background="?attr/colorButtonNormal"
+        a:theme="@style/ThemeOverlay.AppCompat.ActionBar"
 
         app:layout_constraintBottom_toTopOf="@id/ivAvatar"
         app:layout_constraintLeft_toLeftOf="parent"
