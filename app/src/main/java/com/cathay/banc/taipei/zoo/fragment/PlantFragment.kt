@@ -1,24 +1,21 @@
 package com.cathay.banc.taipei.zoo.fragment
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ListView
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cathay.banc.taipei.zoo.R
-import com.cathay.banc.taipei.zoo.activity.PlantActivity
 import com.cathay.banc.taipei.zoo.adapter.PlantAdapter
 import com.cathay.banc.taipei.zoo.contract.ZooContract
 import com.cathay.banc.taipei.zoo.entity.Plant
 import com.cathay.banc.taipei.zoo.presenter.PlantPresenter
-import com.cathay.banc.taipei.zoo.util.Constants.INTENT_EXTRA_KEY_PLANT
+import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 
 class PlantFragment : Fragment(), ZooContract.IPlantView {
 
@@ -31,12 +28,8 @@ class PlantFragment : Fragment(), ZooContract.IPlantView {
     /*
         presenter
      */
-    private lateinit var plantPresenter: PlantPresenter
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-
-        plantPresenter = PlantPresenter(context, this)
+    private val plantPresenter: PlantPresenter by inject {
+        parametersOf(this)
     }
 
     override fun onCreateView(layoutInflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

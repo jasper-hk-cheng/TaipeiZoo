@@ -1,9 +1,6 @@
 package com.cathay.banc.taipei.zoo.activity
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.AdapterView
-import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,7 +10,8 @@ import com.cathay.banc.taipei.zoo.adapter.ArenaAdapter
 import com.cathay.banc.taipei.zoo.contract.ZooContract
 import com.cathay.banc.taipei.zoo.entity.Arena
 import com.cathay.banc.taipei.zoo.presenter.ArenaPresenter
-import com.cathay.banc.taipei.zoo.util.Constants.INTENT_EXTRA_KEY_ARENA
+import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 
 class MainActivity : AppCompatActivity(), ZooContract.IArenaView {
 
@@ -26,7 +24,9 @@ class MainActivity : AppCompatActivity(), ZooContract.IArenaView {
     /*
         presenter
      */
-    private val arenaPresenter = ArenaPresenter(this, this)
+    private val arenaPresenter: ArenaPresenter by inject {
+        parametersOf(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
