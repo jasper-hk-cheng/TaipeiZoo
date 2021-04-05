@@ -8,7 +8,7 @@ import org.koin.dsl.module
 
 val arenaPresenterModule = module {
     single<ArenaPresenter> { (view: ZooContract.IArenaView) ->
-        ArenaPresenter(androidContext() ,view)
+        ArenaPresenter(androidContext(), view)
     }
 }
 

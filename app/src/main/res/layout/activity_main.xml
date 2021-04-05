@@ -6,7 +6,6 @@
     a:layout_height="match_parent"
     tools:context=".activity.MainActivity">
 
-    <!--XXX real usage ?? a:elevation="4dp"-->
     <androidx.appcompat.widget.Toolbar
         a:id="@+id/toolbar"
         a:layout_width="0dp"
