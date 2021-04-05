@@ -54,8 +54,20 @@ object BitmapTools {
     fun getDefault(): Bitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888)
 
     @JvmStatic
-    @BindingAdapter("android:src")
-    fun loadImageUrl(imageView: ImageView, url: String) {
+    @BindingAdapter("circleImageUrl")
+    fun loadCircleImageUrl(imageView: ImageView, url: String) {
         Picasso.with(imageView.context).load(url).transform(CircleTransformation).into(imageView)
+    }
+
+    @JvmStatic
+    @BindingAdapter("rectangleImageUrl")
+    fun loadRectangleImageUrl(imageView: ImageView, url: String) {
+        Picasso.with(imageView.context).load(url).transform(SquareTransformation).into(imageView)
+    }
+
+    @JvmStatic
+    @BindingAdapter("android:src")
+    fun loadOriginalImageUrl(imageView: ImageView, url: String) {
+        Picasso.with(imageView.context).load(url).into(imageView)
     }
 }

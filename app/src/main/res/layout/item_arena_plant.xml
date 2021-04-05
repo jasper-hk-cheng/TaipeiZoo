@@ -37,8 +37,8 @@
             android:paddingVertical="@dimen/block_seam"
             android:paddingLeft="@dimen/block_seam"
             android:paddingRight="@dimen/block_seam_half"
-            android:src="@{commonItem.avatarUrl}"
 
+            app:circleImageUrl="@{commonItem.avatarUrl}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="w,1:1"
             app:layout_constraintLeft_toLeftOf="parent"
