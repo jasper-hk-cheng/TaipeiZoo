@@ -1,99 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:a="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    a:layout_width="match_parent"
-    a:layout_height="match_parent"
-    tools:context=".activity.PlantActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.Guideline
-        a:id="@+id/guidelineEdgeLeft"
-        a:layout_width="0dp"
-        a:layout_height="0dp"
-        a:orientation="vertical"
+    <data>
 
-        app:layout_constraintGuide_begin="@dimen/block_seam" />
+        <variable
+            name="plant"
+            type="com.cathay.banc.taipei.zoo.entity.Plant" />
+    </data>
 
-    <androidx.constraintlayout.widget.Guideline
-        a:id="@+id/guidelineEdgeRight"
-        a:layout_width="0dp"
-        a:layout_height="0dp"
-        a:orientation="vertical"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.PlantActivity">
 
-        app:layout_constraintGuide_end="@dimen/block_seam" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineEdgeLeft"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
 
-    <androidx.constraintlayout.widget.Guideline
-        a:id="@+id/guidelineEdgeBottom"
-        a:layout_width="0dp"
-        a:layout_height="0dp"
-        a:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/block_seam" />
 
-        app:layout_constraintGuide_end="@dimen/block_seam" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineEdgeRight"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
 
-    <androidx.appcompat.widget.Toolbar
-        a:id="@+id/toolbar"
-        a:layout_width="0dp"
-        a:layout_height="?attr/actionBarSize"
-        a:background="?attr/colorButtonNormal"
-        a:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:layout_constraintGuide_end="@dimen/block_seam" />
 
-        app:layout_constraintBottom_toTopOf="@id/ivAvatar"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineEdgeBottom"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
 
-    <ImageView
-        a:id="@+id/ivAvatar"
-        a:layout_width="0dp"
-        a:layout_height="0dp"
+            app:layout_constraintGuide_end="@dimen/block_seam" />
 
-        app:layout_constraintBottom_toTopOf="@id/tvNameCh"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        app:layout_constraintVertical_weight="0.3" />
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorButtonNormal"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
 
-    <TextView
-        a:id="@+id/tvNameCh"
-        a:layout_width="0dp"
-        a:layout_height="wrap_content"
-        a:gravity="center"
-        a:paddingTop="@dimen/block_seam"
-        a:textSize="@dimen/text_size_title"
+            app:layout_constraintBottom_toTopOf="@id/ivAvatar"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        app:layout_constraintBottom_toTopOf="@id/tvNameLatin"
-        app:layout_constraintLeft_toRightOf="@id/guidelineEdgeLeft"
-        app:layout_constraintRight_toLeftOf="@id/guidelineEdgeRight"
-        app:layout_constraintTop_toBottomOf="@id/ivAvatar" />
+        <ImageView
+            android:id="@+id/ivAvatar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@{plant.avatarUrl}"
 
-    <TextView
-        a:id="@+id/tvNameLatin"
-        a:layout_width="0dp"
-        a:layout_height="wrap_content"
-        a:gravity="center"
-        a:textSize="@dimen/text_size_subtitle"
+            app:layout_constraintBottom_toTopOf="@id/tvNameCh"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintVertical_weight="0.3" />
 
-        app:layout_constraintBottom_toTopOf="@id/svPlantDetail"
-        app:layout_constraintLeft_toRightOf="@id/guidelineEdgeLeft"
-        app:layout_constraintRight_toLeftOf="@id/guidelineEdgeRight"
-        app:layout_constraintTop_toBottomOf="@id/tvNameCh" />
+        <TextView
+            android:id="@+id/tvNameCh"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="@dimen/block_seam"
+            android:text="@{plant.nameCh}"
+            android:textSize="@dimen/text_size_title"
 
-    <ScrollView
-        a:id="@+id/svPlantDetail"
-        a:layout_width="0dp"
-        a:layout_height="0dp"
-        a:scrollbarAlwaysDrawVerticalTrack="true"
-        a:scrollbarSize="@dimen/scroll_bar_size"
-        a:scrollbarStyle="insideOverlay"
+            app:layout_constraintBottom_toTopOf="@id/tvNameLatin"
+            app:layout_constraintLeft_toRightOf="@id/guidelineEdgeLeft"
+            app:layout_constraintRight_toLeftOf="@id/guidelineEdgeRight"
+            app:layout_constraintTop_toBottomOf="@id/ivAvatar" />
 
-        app:layout_constraintBottom_toTopOf="@id/guidelineEdgeBottom"
-        app:layout_constraintLeft_toRightOf="@id/guidelineEdgeLeft"
-        app:layout_constraintRight_toLeftOf="@id/guidelineEdgeRight"
-        app:layout_constraintTop_toBottomOf="@id/tvNameLatin"
-        app:layout_constraintVertical_weight="0.7">
+        <TextView
+            android:id="@+id/tvNameLatin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{plant.nameLatin}"
+            android:textSize="@dimen/text_size_subtitle"
 
-        <include layout="@layout/template_plant_detail" />
+            app:layout_constraintBottom_toTopOf="@id/svPlantDetail"
+            app:layout_constraintLeft_toRightOf="@id/guidelineEdgeLeft"
+            app:layout_constraintRight_toLeftOf="@id/guidelineEdgeRight"
+            app:layout_constraintTop_toBottomOf="@id/tvNameCh" />
 
-    </ScrollView>
+        <ScrollView
+            android:id="@+id/svPlantDetail"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbarSize="@dimen/scroll_bar_size"
+            android:scrollbarStyle="insideOverlay"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintBottom_toTopOf="@id/guidelineEdgeBottom"
+            app:layout_constraintLeft_toRightOf="@id/guidelineEdgeLeft"
+            app:layout_constraintRight_toLeftOf="@id/guidelineEdgeRight"
+            app:layout_constraintTop_toBottomOf="@id/tvNameLatin"
+            app:layout_constraintVertical_weight="0.7">
+
+            <include
+                android:id="@+id/template_plant_detail"
+                layout="@layout/template_plant_detail" />
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

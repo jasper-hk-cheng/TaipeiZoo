@@ -5,6 +5,9 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.FragmentActivity
+import butterknife.BindView
+import butterknife.ButterKnife
+import butterknife.Unbinder
 import com.cathay.banc.taipei.zoo.R
 import com.cathay.banc.taipei.zoo.entity.Arena
 import com.cathay.banc.taipei.zoo.util.Constants
@@ -15,7 +18,10 @@ class ArenaPlantFragmentActivity : AppCompatActivity() {
     /*
         views
      */
-    private lateinit var toolbar: Toolbar
+    private lateinit var unbinder: Unbinder
+
+    @BindView(R.id.toolbar)
+    lateinit var toolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,11 +32,11 @@ class ArenaPlantFragmentActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
+        unbinder = ButterKnife.bind(this)
         val arena: Arena = intent.getParcelableExtra(INTENT_EXTRA_KEY_ARENA)
         //
-        toolbar = findViewById(R.id.toolbar)
         toolbar.logo = getDrawable(R.drawable.baseline_arrow_back_18)
-        toolbar.title = arena.title
+        toolbar.title = arena._title
         toolbar.titleMarginStart = resources.getDimension(R.dimen.toolbar_margin_start).toInt()
         toolbar.getChildAt(0).setOnClickListener { finish() }
         setSupportActionBar(toolbar)

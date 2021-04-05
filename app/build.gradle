@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -30,6 +31,13 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    /*
+        for MVVM pattern data binding
+     */
+    dataBinding {
+        enabled = true
     }
 }
 
@@ -91,4 +99,10 @@ dependencies {
     implementation "org.koin:koin-android-viewmodel:$koin_version"
     // Koin Android Experimental features
     implementation "org.koin:koin-android-ext:$koin_version"
+    /*
+        butter knife
+     */
+    def butterKnife_version = '10.2.3'
+    implementation "com.jakewharton:butterknife:$butterKnife_version"
+    kapt "com.jakewharton:butterknife-compiler:$butterKnife_version"
 }

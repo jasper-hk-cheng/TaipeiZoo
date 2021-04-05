@@ -1,103 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:a="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    a:layout_width="match_parent"
-    a:layout_height="wrap_content">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.Guideline
-        a:id="@+id/guidelineV1"
-        a:layout_width="0dp"
-        a:layout_height="0dp"
-        a:orientation="vertical"
+    <data>
 
-        app:layout_constraintGuide_percent="0.33" />
+        <variable
+            name="commonItem"
+            type="com.cathay.banc.taipei.zoo.entity.CommonItem" />
+    </data>
 
-    <androidx.constraintlayout.widget.Guideline
-        a:id="@+id/guidelineV2"
-        a:layout_width="0dp"
-        a:layout_height="0dp"
-        a:orientation="vertical"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        app:layout_constraintGuide_percent="0.92" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineV1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
 
-    <ImageView
-        a:id="@+id/ivAvatar"
-        a:layout_width="0dp"
-        a:layout_height="0dp"
-        a:paddingVertical="@dimen/block_seam"
-        a:paddingLeft="@dimen/block_seam"
-        a:paddingRight="@dimen/block_seam_half"
+            app:layout_constraintGuide_percent="0.33" />
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="w,1:1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/guidelineV1"
-        app:layout_constraintTop_toTopOf="parent"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineV2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
 
-        tools:src="@drawable/cordova_ios_72" />
+            app:layout_constraintGuide_percent="0.92" />
 
-    <TextView
-        a:id="@+id/tvTitle"
-        a:layout_width="0dp"
-        a:layout_height="0dp"
-        a:gravity="left|center_vertical"
-        a:maxLines="1"
-        a:paddingLeft="@dimen/block_seam_half"
-        a:textSize="@dimen/text_size_title"
-        a:textStyle="bold"
+        <ImageView
+            android:id="@+id/ivAvatar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingVertical="@dimen/block_seam"
+            android:paddingLeft="@dimen/block_seam"
+            android:paddingRight="@dimen/block_seam_half"
+            android:src="@{commonItem.avatarUrl}"
 
-        app:layout_constraintBottom_toTopOf="@id/tvDescription"
-        app:layout_constraintLeft_toRightOf="@id/guidelineV1"
-        app:layout_constraintRight_toLeftOf="@id/guidelineV2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_weight="3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="w,1:1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/guidelineV1"
+            app:layout_constraintTop_toTopOf="parent"
 
-        tools:text="@string/testing_title" />
+            tools:src="@drawable/cordova_ios_72" />
 
-    <TextView
-        a:id="@+id/tvDescription"
-        a:layout_width="0dp"
-        a:layout_height="0dp"
-        a:ellipsize="end"
-        a:maxLines="3"
-        a:paddingLeft="@dimen/block_seam_half"
-        a:paddingRight="@dimen/block_seam"
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="left|center_vertical"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/block_seam_half"
+            android:text="@{commonItem.title}"
+            android:textSize="@dimen/text_size_title"
+            android:textStyle="bold"
 
-        app:layout_constraintBottom_toTopOf="@id/tvInfo"
-        app:layout_constraintLeft_toRightOf="@id/guidelineV1"
-        app:layout_constraintRight_toLeftOf="@id/guidelineV2"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle"
-        app:layout_constraintVertical_weight="5"
+            app:layout_constraintBottom_toTopOf="@id/tvDescription"
+            app:layout_constraintLeft_toRightOf="@id/guidelineV1"
+            app:layout_constraintRight_toLeftOf="@id/guidelineV2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_weight="3"
 
-        tools:text="@string/testing_description" />
+            tools:text="@string/testing_title" />
 
-    <TextView
-        a:id="@+id/tvInfo"
-        a:layout_width="0dp"
-        a:layout_height="0dp"
-        a:gravity="center_vertical"
-        a:paddingLeft="@dimen/block_seam_half"
-        a:textColor="@android:color/holo_orange_dark"
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:paddingLeft="@dimen/block_seam_half"
+            android:paddingRight="@dimen/block_seam"
+            android:text="@{commonItem.description}"
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/guidelineV1"
-        app:layout_constraintRight_toLeftOf="@id/guidelineV2"
-        app:layout_constraintTop_toBottomOf="@id/tvDescription"
-        app:layout_constraintVertical_weight="2"
+            app:layout_constraintBottom_toTopOf="@id/tvInfo"
+            app:layout_constraintLeft_toRightOf="@id/guidelineV1"
+            app:layout_constraintRight_toLeftOf="@id/guidelineV2"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:layout_constraintVertical_weight="5"
 
-        tools:text="@string/testing_info" />
+            tools:text="@string/testing_description" />
 
-    <ImageView
-        a:id="@+id/ivChevron"
-        a:layout_width="0dp"
-        a:layout_height="0dp"
-        a:src="@drawable/baseline_chevron_right_18"
+        <TextView
+            android:id="@+id/tvInfo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/block_seam_half"
+            android:text="@{commonItem.info}"
+            android:textColor="@android:color/holo_orange_dark"
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="h,1:1"
-        app:layout_constraintLeft_toRightOf="@id/guidelineV2"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/guidelineV1"
+            app:layout_constraintRight_toLeftOf="@id/guidelineV2"
+            app:layout_constraintTop_toBottomOf="@id/tvDescription"
+            app:layout_constraintVertical_weight="2"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            tools:text="@string/testing_info" />
+
+        <ImageView
+            android:id="@+id/ivChevron"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/baseline_chevron_right_18"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="h,1:1"
+            app:layout_constraintLeft_toRightOf="@id/guidelineV2"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

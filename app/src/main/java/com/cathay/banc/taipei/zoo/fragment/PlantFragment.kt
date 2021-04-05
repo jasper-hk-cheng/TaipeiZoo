@@ -9,6 +9,9 @@ import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import butterknife.BindView
+import butterknife.ButterKnife
+import butterknife.Unbinder
 import com.cathay.banc.taipei.zoo.R
 import com.cathay.banc.taipei.zoo.adapter.PlantAdapter
 import com.cathay.banc.taipei.zoo.contract.ZooContract
@@ -22,8 +25,13 @@ class PlantFragment : Fragment(), ZooContract.IPlantView {
     /*
         views
      */
-    private lateinit var toolbar: Toolbar
-    private lateinit var rvPlant: RecyclerView
+    private lateinit var unbinder: Unbinder
+
+    @BindView(R.id.toolbar)
+    lateinit var toolbar: Toolbar
+
+    @BindView(R.id.rvPlant)
+    lateinit var rvPlant: RecyclerView
 
     /*
         presenter
@@ -34,10 +42,10 @@ class PlantFragment : Fragment(), ZooContract.IPlantView {
 
     override fun onCreateView(layoutInflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view: View = layoutInflater.inflate(R.layout.fragment_plant_list, container)
-
-        toolbar = view.findViewById<Toolbar>(R.id.toolbar).apply { title = getString(R.string.plant_list_title) }
+        unbinder = ButterKnife.bind(this, view)
         //
-        rvPlant = view.findViewById(R.id.rvPlant)
+        toolbar.title = getString(R.string.plant_list_title)
+        //
         rvPlant.layoutManager = LinearLayoutManager(context)
 
         return view

@@ -1,6 +1,10 @@
 package com.cathay.banc.taipei.zoo.util
 
 import android.graphics.*
+import android.widget.ImageView
+import androidx.databinding.BindingAdapter
+import com.cathay.banc.taipei.zoo.R
+import com.squareup.picasso.Picasso
 
 object BitmapTools {
 
@@ -48,4 +52,10 @@ object BitmapTools {
     }
 
     fun getDefault(): Bitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888)
+
+    @JvmStatic
+    @BindingAdapter("android:src")
+    fun loadImageUrl(imageView: ImageView, url: String) {
+        Picasso.with(imageView.context).load(url).transform(CircleTransformation).into(imageView)
+    }
 }
