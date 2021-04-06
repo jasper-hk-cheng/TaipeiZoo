@@ -14,14 +14,13 @@ class PlantActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_plant)
+        activityPlantBinding = DataBindingUtil.setContentView(this, R.layout.activity_plant)
 
         initViews()
         loadData()
     }
 
     private fun initViews() {
-        activityPlantBinding = DataBindingUtil.setContentView(this, R.layout.activity_plant)
         //
         activityPlantBinding.toolbar.logo = getDrawable(R.drawable.baseline_arrow_back_18)
         activityPlantBinding.toolbar.titleMarginStart = resources.getDimension(R.dimen.toolbar_margin_start).toInt()
