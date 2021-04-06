@@ -31,7 +31,7 @@ class ArenaFragment : Fragment() {
         val arena: Arena = activity?.intent?.getParcelableExtra(INTENT_EXTRA_KEY_ARENA) ?: return
         fragmentArenaBinding.arena = arena
         fragmentArenaBinding.tvOuterLink.setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(arena._url)))
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(arena.eUrl)))
         }
     }
 }

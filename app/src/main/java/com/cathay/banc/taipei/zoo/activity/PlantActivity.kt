@@ -2,11 +2,7 @@ package com.cathay.banc.taipei.zoo.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
-import butterknife.BindView
-import butterknife.ButterKnife
-import butterknife.Unbinder
 import com.cathay.banc.taipei.zoo.R
 import com.cathay.banc.taipei.zoo.databinding.ActivityPlantBinding
 import com.cathay.banc.taipei.zoo.entity.Plant
@@ -36,7 +32,7 @@ class PlantActivity : AppCompatActivity() {
     private fun loadData() {
         val plant: Plant = intent.getParcelableExtra(INTENT_EXTRA_KEY_PLANT)
         //
-        activityPlantBinding.toolbar.title = plant.nameCh
+        activityPlantBinding.toolbar.title = plant.fNameCh
         //
         activityPlantBinding.plant = plant
         activityPlantBinding.templatePlantDetail.plant = plant

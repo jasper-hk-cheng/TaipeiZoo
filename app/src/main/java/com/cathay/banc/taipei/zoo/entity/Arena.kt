@@ -6,6 +6,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
+import com.cathay.banc.taipei.zoo.BR
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parceler
 import kotlinx.android.parcel.Parcelize
@@ -25,50 +26,96 @@ data class ArenaEnvelope(
 @Parcelize
 data class Arena(
     @SerializedName("_id") var _id: Long = 0L,
-    @SerializedName("E_Pic_URL") var _avatarUrl: String = "",
-    @SerializedName("E_Name") var _title: String = "",
-    @SerializedName("E_Info") var _description: String = "",
-    @SerializedName("E_Memo") var _info: String = "無休館資訊",
-    @SerializedName("E_Category") var _category: Category = Category.未知分類,
-    @SerializedName("E_URL") var _url: String = "",
-) : Parcelable, BaseObservable() {
+    @SerializedName("E_Pic_URL") var _ePicUrl: String = "",
+    @SerializedName("E_Name") var _eName: String = "",
+    @SerializedName("E_Info") var _eInfo: String = "",
+    @SerializedName("E_Memo") var _eMemo: String = "無休館資訊",
+    @SerializedName("E_Category") var _eCategory: Category = Category.未知分類,
+    @SerializedName("E_URL") var _eUrl: String = "",
+) : Parcelable, CommonItem, BaseObservable() {
 
+    /*
+        parcelable
+     */
     companion object : Parceler<Arena> {
         override fun Arena.write(parcel: Parcel, flags: Int) {
             parcel.writeLong(_id)
-            parcel.writeString(_avatarUrl)
-            parcel.writeString(_title)
-            parcel.writeString(_description)
-            parcel.writeString(_info)
-            parcel.writeString(_category.name)
-            parcel.writeString(_url)
+            parcel.writeString(_ePicUrl)
+            parcel.writeString(_eName)
+            parcel.writeString(_eInfo)
+            parcel.writeString(_eMemo)
+            parcel.writeString(_eCategory.name)
+            parcel.writeString(_eUrl)
         }
 
         override fun create(parcel: Parcel): Arena {
             val arena = Arena()
 
             arena._id = parcel.readLong()
-            arena._avatarUrl = parcel.readString() ?: ""
-            arena._title = parcel.readString() ?: ""
-            arena._description = parcel.readString() ?: ""
-            arena._info = parcel.readString() ?: ""
-            arena._category = Category.valueOf(parcel.readString() ?: Category.未知分類.name)
-            arena._url = parcel.readString() ?: ""
+            arena._ePicUrl = parcel.readString() ?: ""
+            arena._eName = parcel.readString() ?: ""
+            arena._eInfo = parcel.readString() ?: ""
+            arena._eMemo = parcel.readString() ?: ""
+            arena._eCategory = Category.valueOf(parcel.readString() ?: Category.未知分類.name)
+            arena._eUrl = parcel.readString() ?: ""
 
             return arena
         }
     }
 
-    val avatarUrl: String
-        @Bindable get() = _avatarUrl
-    val description: String
-        @Bindable get() = _description
-    val info: String
-        @Bindable get() = _info
-    val category: Category
-        @Bindable get() = _category
-    val url: String
-        @Bindable get() = _url
+    /*
+        CommonItem
+     */
+    override fun getAvatarUrl(): String = ePicUrl
+    override fun getTitle(): String = eName
+    override fun getDescription(): String = eInfo
+    override fun getInfo(): String = eMemo
+
+    /*
+        base observable
+     */
+    var id: Long
+        @Bindable get() = _id
+        set(value) {
+            _id = value
+            notifyPropertyChanged(BR.id)
+        }
+    var ePicUrl: String
+        @Bindable get() = _ePicUrl
+        set(value) {
+            _ePicUrl = value
+            notifyPropertyChanged(BR.ePicUrl)
+        }
+    var eName: String
+        @Bindable get() = _eName
+        set(value) {
+            _eName = value
+            notifyPropertyChanged(BR.eName)
+        }
+    var eInfo: String
+        @Bindable get() = _eInfo
+        set(value) {
+            _eInfo = value
+            notifyPropertyChanged(BR.eInfo)
+        }
+    var eMemo: String
+        @Bindable get() = _eMemo
+        set(value) {
+            _eMemo = value
+            notifyPropertyChanged(BR.eMemo)
+        }
+    var eCategory: Category
+        @Bindable get() = _eCategory
+        set(value) {
+            _eCategory = value
+            notifyPropertyChanged(BR.eCategory)
+        }
+    var eUrl: String
+        @Bindable get() = _eUrl
+        set(value) {
+            _eUrl = value
+            notifyPropertyChanged(BR.eUrl)
+        }
 }
 
 enum class Category {

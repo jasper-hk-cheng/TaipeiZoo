@@ -32,7 +32,7 @@
             android:id="@+id/tvAlias"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{plant.alias}"
+            android:text="@{plant.FAlsoKnown}"
 
             app:layout_constraintBottom_toTopOf="@id/tvBriefLabel"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -57,7 +57,7 @@
             android:id="@+id/tvBrief"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{plant.brief}"
+            android:text="@{plant.FBrief}"
 
             app:layout_constraintBottom_toTopOf="@id/tvFeatureLabel"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -82,7 +82,7 @@
             android:id="@+id/tvFeature"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{plant.feature}"
+            android:text="@{plant.FFeature}"
 
             app:layout_constraintBottom_toTopOf="@id/tvFunctionApplicationLabel"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -107,7 +107,7 @@
             android:id="@+id/tvFunctionApplication"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{plant.functionAndApplication}"
+            android:text="@{plant.FFunctionAndApplication}"
 
             app:layout_constraintBottom_toTopOf="@id/tvUpdateDate"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -135,7 +135,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="@dimen/block_seam_half"
             android:paddingTop="@dimen/block_seam"
-            android:text="@{plant.updateDate}"
+            android:text="@{plant.FUpdate}"
             android:textStyle="bold"
             android:typeface="serif"
 

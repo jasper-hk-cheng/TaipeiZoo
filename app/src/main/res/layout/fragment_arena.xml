@@ -45,7 +45,7 @@
             android:layout_marginHorizontal="@dimen/block_seam"
             android:layout_marginTop="@dimen/block_seam"
             android:layout_marginBottom="@dimen/block_seam_half"
-            android:src="@{arena.avatarUrl}"
+            android:src="@{arena.EPicUrl}"
 
             app:layout_constraintBottom_toTopOf="@id/guidelineH1"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -60,7 +60,7 @@
             android:layout_height="0dp"
             android:paddingHorizontal="@dimen/block_seam"
             android:paddingVertical="@dimen/block_seam_half"
-            android:text="@{arena.description}"
+            android:text="@{arena.EInfo}"
 
             app:layout_constraintBottom_toTopOf="@id/guidelineH2"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -75,7 +75,7 @@
             android:layout_height="0dp"
             android:paddingHorizontal="@dimen/block_seam"
             android:paddingVertical="@dimen/block_seam_half"
-            android:text="@{arena.info}"
+            android:text="@{arena.EMemo}"
 
             app:layout_constraintBottom_toTopOf="@id/tvCategory"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -91,7 +91,7 @@
             android:paddingHorizontal="@dimen/block_seam"
             android:paddingTop="@dimen/block_seam_half"
             android:paddingBottom="@dimen/block_seam"
-            android:text="@{arena.category.name()}"
+            android:text="@{arena.ECategory.name()}"
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"

@@ -55,7 +55,7 @@
             android:id="@+id/ivAvatar"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:src="@{plant.avatarUrl}"
+            android:src="@{plant.FPic01Url}"
 
             app:layout_constraintBottom_toTopOf="@id/tvNameCh"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -69,7 +69,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingTop="@dimen/block_seam"
-            android:text="@{plant.nameCh}"
+            android:text="@{plant.FNameCh}"
             android:textSize="@dimen/text_size_title"
 
             app:layout_constraintBottom_toTopOf="@id/tvNameLatin"
@@ -82,7 +82,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@{plant.nameLatin}"
+            android:text="@{plant.FNameLatin}"
             android:textSize="@dimen/text_size_subtitle"
 
             app:layout_constraintBottom_toTopOf="@id/svPlantDetail"
