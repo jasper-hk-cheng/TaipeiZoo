@@ -71,6 +71,7 @@ dependencies {
      */
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.okhttp:logging-interceptor:2.7.5"
     /*
         json - Gson
      */
@@ -94,9 +95,9 @@ dependencies {
     // Koin for Android
     implementation "org.koin:koin-android:$koin_version"
     // Koin Android Scope features
-    implementation "org.koin:koin-android-scope:$koin_version"
+    implementation "org.koin:koin-androidx-scope:$koin_version"
     // Koin Android ViewModel features
-    implementation "org.koin:koin-android-viewmodel:$koin_version"
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
     // Koin Android Experimental features
     implementation "org.koin:koin-android-ext:$koin_version"
     /*

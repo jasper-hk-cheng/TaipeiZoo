@@ -7,11 +7,9 @@ import com.cathay.banc.taipei.zoo.repository.IZooRepository
 import com.cathay.banc.taipei.zoo.repository.ZooRepository
 
 class PlantPresenter(
-    context: Context,
     private val plantView: ZooContract.IPlantView,
+    private val zooRepository: IZooRepository,
 ) : ZooContract.IPlantPresenter {
-
-    private val zooRepository: IZooRepository = ZooRepository(context)
 
     override fun getPlantList() {
         zooRepository.getPlantList(object : IZooRepository.PlantListCallback {

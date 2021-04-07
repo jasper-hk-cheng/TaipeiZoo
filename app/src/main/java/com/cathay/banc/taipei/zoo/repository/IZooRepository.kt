@@ -1,5 +1,6 @@
 package com.cathay.banc.taipei.zoo.repository
 
+import com.cathay.banc.taipei.zoo.api.ZooAPI
 import com.cathay.banc.taipei.zoo.entity.Arena
 import com.cathay.banc.taipei.zoo.entity.Plant
 

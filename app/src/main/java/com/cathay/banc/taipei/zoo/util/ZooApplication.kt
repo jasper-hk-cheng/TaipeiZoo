@@ -1,10 +1,10 @@
 package com.cathay.banc.taipei.zoo.util
 
 import android.app.Application
-import com.cathay.banc.taipei.zoo.di.arenaPresenterModule
-import com.cathay.banc.taipei.zoo.di.plantPresenterModule
+import com.cathay.banc.taipei.zoo.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
+import org.koin.android.logger.AndroidLogger
 import org.koin.core.context.startKoin
 
 class ZooApplication : Application() {
@@ -17,7 +17,13 @@ class ZooApplication : Application() {
             // android context
             androidContext(this@ZooApplication)
             // modules
-            modules(arenaPresenterModule, plantPresenterModule)
+            modules(
+                arenaPresenterModule,
+                plantPresenterModule,
+                repositoryModule,
+                retrofitModule,
+                zooApiModule,
+            )
         }
     }
 }

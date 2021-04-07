@@ -1,10 +1,10 @@
 package com.cathay.banc.taipei.zoo.api
 
-import com.cathay.banc.taipei.zoo.api.ZooApiFactory.API_QUERY_PARAM_SCOPE
-import com.cathay.banc.taipei.zoo.entity.*
+import com.cathay.banc.taipei.zoo.entity.ArenaResult
+import com.cathay.banc.taipei.zoo.entity.PlantResult
+import com.cathay.banc.taipei.zoo.util.Constants.API_QUERY_PARAM_SCOPE
 import retrofit2.Call
 import retrofit2.http.GET
-import retrofit2.http.POST
 
 interface ZooAPI {
 
