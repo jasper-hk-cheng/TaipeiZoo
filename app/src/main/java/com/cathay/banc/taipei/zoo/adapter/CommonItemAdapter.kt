@@ -3,6 +3,7 @@ package com.cathay.banc.taipei.zoo.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -12,9 +13,13 @@ import com.cathay.banc.taipei.zoo.entity.CommonItem
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_plant.view.*
 
-abstract class CommonItemAdapter(
+class CommonItemAdapter(
     private val commonItemList: List<CommonItem>,
-) : RecyclerView.Adapter<CommonItemAdapter.ViewHolder>() {
+) : BaseAdapter() {
+
+    override fun getCount(): Int = commonItemList.count()
+    override fun getItem(position: Int): CommonItem = commonItemList[position]
+    override fun getItemId(position: Int): Long = position.toLong()
 
     inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         private val ivAvatar: ImageView = view.findViewById(R.id.ivAvatar)
@@ -30,20 +35,20 @@ abstract class CommonItemAdapter(
         }
     }
 
-    override fun getItemCount(): Int = commonItemList.count()
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
+        var view: View? = convertView
+        val viewHolder: RecyclerView.ViewHolder
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_arena_plant, parent, false)
-        return ViewHolder(view)
+        if (view == null) {
+            view = LayoutInflater.from(parent?.context).inflate(R.layout.item_arena_plant, parent, false)
+            viewHolder = ViewHolder(view)
+
+            view.tag = viewHolder
+        } else {
+            viewHolder = view.tag as ViewHolder
+        }
+        viewHolder.bind(getItem(position))
+
+        return view!!
     }
-
-    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        val commonItem: CommonItem = commonItemList[position]
-        //
-        viewHolder.bind(commonItem)
-        //
-        setOnItemClickLnr(viewHolder.view, commonItem)
-    }
-
-    abstract fun setOnItemClickLnr(view: View, commonItem: CommonItem)
 }
