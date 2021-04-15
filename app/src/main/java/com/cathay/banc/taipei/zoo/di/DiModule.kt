@@ -17,13 +17,13 @@ import retrofit2.converter.gson.GsonConverterFactory
     presenter
  */
 val arenaPresenterModule = module {
-    single<ArenaPresenter> { (view: ZooContract.IArenaView) ->
+    factory<ArenaPresenter> { (view: ZooContract.IArenaView) ->
         ArenaPresenter(view, get<ZooRepository>())
     }
 }
 
 val plantPresenterModule = module {
-    single<PlantPresenter> { (view: ZooContract.IPlantView) ->
+    factory<PlantPresenter> { (view: ZooContract.IPlantView) ->
         PlantPresenter(view, get<ZooRepository>())
     }
 }
@@ -32,7 +32,7 @@ val plantPresenterModule = module {
     repository
  */
 val repositoryModule = module {
-    single<ZooRepository> {
+    factory<ZooRepository> {
         ZooRepository(androidContext(), get<ZooAPI>())
     }
 }
@@ -42,7 +42,7 @@ val repositoryModule = module {
  */
 // TODO: 2021/4/7 add OkHttpClient's Interceptor
 val retrofitModule = module {
-    single<Retrofit> {
+    factory<Retrofit> {
         val okHttpClient = OkHttpClient()
         Retrofit.Builder()
             .baseUrl(BASE_URL)
@@ -53,7 +53,7 @@ val retrofitModule = module {
 }
 
 val zooApiModule = module {
-    single<ZooAPI> {
+    factory<ZooAPI> {
         get<Retrofit>().create(ZooAPI::class.java)
     }
 }
