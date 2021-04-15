@@ -1,117 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:a="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
 
-    <data>
+    a:layout_width="match_parent"
+    a:layout_height="match_parent">
 
-        <variable
-            name="arena"
-            type="com.cathay.banc.taipei.zoo.entity.Arena" />
-    </data>
+    <androidx.constraintlayout.widget.Guideline
+        a:id="@+id/guidelineH1"
+        a:layout_width="0dp"
+        a:layout_height="0dp"
+        a:orientation="horizontal"
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        app:layout_constraintGuide_percent="0.5" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineH1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:orientation="horizontal"
+    <androidx.constraintlayout.widget.Guideline
+        a:id="@+id/guidelineH2"
+        a:layout_width="0dp"
+        a:layout_height="0dp"
+        a:orientation="horizontal"
 
-            app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.85" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineH2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:orientation="horizontal"
+    <androidx.constraintlayout.widget.Guideline
+        a:id="@+id/guidelineV1"
+        a:layout_width="0dp"
+        a:layout_height="0dp"
+        a:orientation="vertical"
 
-            app:layout_constraintGuide_percent="0.85" />
+        app:layout_constraintGuide_percent="0.8" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineV1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:orientation="vertical"
+    <ImageView
+        a:id="@+id/ivAvatar"
+        a:layout_width="0dp"
+        a:layout_height="0dp"
+        a:layout_marginHorizontal="@dimen/block_seam"
+        a:layout_marginTop="@dimen/block_seam"
+        a:layout_marginBottom="@dimen/block_seam_half"
 
-            app:layout_constraintGuide_percent="0.8" />
+        app:layout_constraintBottom_toTopOf="@id/guidelineH1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
 
-        <ImageView
-            android:id="@+id/ivAvatar"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginHorizontal="@dimen/block_seam"
-            android:layout_marginTop="@dimen/block_seam"
-            android:layout_marginBottom="@dimen/block_seam_half"
-            android:src="@{arena.EPicUrl}"
+        tools:src="@drawable/cordova_ios_72" />
 
-            app:layout_constraintBottom_toTopOf="@id/guidelineH1"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+    <TextView
+        a:id="@+id/tvDescription"
+        a:layout_width="0dp"
+        a:layout_height="0dp"
+        a:paddingHorizontal="@dimen/block_seam"
+        a:paddingVertical="@dimen/block_seam_half"
 
-            tools:src="@drawable/cordova_ios_72" />
+        app:layout_constraintBottom_toTopOf="@id/guidelineH2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guidelineH1"
 
-        <TextView
-            android:id="@+id/tvDescription"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:paddingHorizontal="@dimen/block_seam"
-            android:paddingVertical="@dimen/block_seam_half"
-            android:text="@{arena.EInfo}"
+        tools:text="@string/testing_description" />
 
-            app:layout_constraintBottom_toTopOf="@id/guidelineH2"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/guidelineH1"
+    <TextView
+        a:id="@+id/tvInfo"
+        a:layout_width="0dp"
+        a:layout_height="0dp"
+        a:paddingHorizontal="@dimen/block_seam"
+        a:paddingVertical="@dimen/block_seam_half"
 
-            tools:text="@string/testing_description" />
+        app:layout_constraintBottom_toTopOf="@id/tvCategory"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/guidelineV1"
+        app:layout_constraintTop_toBottomOf="@id/guidelineH2"
 
-        <TextView
-            android:id="@+id/tvInfo"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:paddingHorizontal="@dimen/block_seam"
-            android:paddingVertical="@dimen/block_seam_half"
-            android:text="@{arena.EMemo}"
+        tools:text="@string/testing_info" />
 
-            app:layout_constraintBottom_toTopOf="@id/tvCategory"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/guidelineV1"
-            app:layout_constraintTop_toBottomOf="@id/guidelineH2"
+    <TextView
+        a:id="@+id/tvCategory"
+        a:layout_width="0dp"
+        a:layout_height="0dp"
+        a:paddingHorizontal="@dimen/block_seam"
+        a:paddingTop="@dimen/block_seam_half"
+        a:paddingBottom="@dimen/block_seam"
 
-            tools:text="@string/testing_info" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/guidelineV1"
+        app:layout_constraintTop_toBottomOf="@id/tvInfo"
 
-        <TextView
-            android:id="@+id/tvCategory"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:paddingHorizontal="@dimen/block_seam"
-            android:paddingTop="@dimen/block_seam_half"
-            android:paddingBottom="@dimen/block_seam"
-            android:text="@{arena.ECategory.name()}"
+        tools:text="@string/testing_category" />
 
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/guidelineV1"
-            app:layout_constraintTop_toBottomOf="@id/tvInfo"
+    <TextView
+        a:id="@+id/tvOuterLink"
+        a:layout_width="0dp"
+        a:layout_height="0dp"
+        a:gravity="center"
+        a:text="@string/arena_detail_hyperlink_label"
+        a:textColor="@android:color/holo_blue_light"
 
-            tools:text="@string/testing_category" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/guidelineV1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guidelineH2" />
 
-        <TextView
-            android:id="@+id/tvOuterLink"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center"
-            android:text="@string/arena_detail_hyperlink_label"
-            android:textColor="@android:color/holo_blue_light"
-
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/guidelineV1"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/guidelineH2" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+</androidx.constraintlayout.widget.ConstraintLayout>

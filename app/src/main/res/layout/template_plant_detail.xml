@@ -1,150 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:a="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tool="http://schemas.android.com/tools">
+    xmlns:tool="http://schemas.android.com/tools"
 
-    <data>
+    a:layout_width="match_parent"
+    a:layout_height="wrap_content">
 
-        <variable
-            name="plant"
-            type="com.cathay.banc.taipei.zoo.entity.Plant" />
-    </data>
+    <TextView
+        a:id="@+id/tvAliasLabel"
+        a:layout_width="0dp"
+        a:layout_height="wrap_content"
+        a:paddingTop="@dimen/block_seam"
+        a:text="@string/plant_label_alias"
+        a:textStyle="bold"
+        a:typeface="serif"
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        app:layout_constraintBottom_toTopOf="@id/tvAlias"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tvAliasLabel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/block_seam"
-            android:text="@string/plant_label_alias"
-            android:textStyle="bold"
-            android:typeface="serif"
+    <TextView
+        a:id="@+id/tvAlias"
+        a:layout_width="0dp"
+        a:layout_height="wrap_content"
+        a:text="@{plant.FAlsoKnown}"
 
-            app:layout_constraintBottom_toTopOf="@id/tvAlias"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@id/tvBriefLabel"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAliasLabel" />
 
-        <TextView
-            android:id="@+id/tvAlias"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@{plant.FAlsoKnown}"
+    <TextView
+        a:id="@+id/tvBriefLabel"
+        a:layout_width="0dp"
+        a:layout_height="wrap_content"
+        a:paddingTop="@dimen/block_seam"
+        a:text="@string/plant_label_brief"
+        a:textStyle="bold"
+        a:typeface="serif"
 
-            app:layout_constraintBottom_toTopOf="@id/tvBriefLabel"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAliasLabel" />
+        app:layout_constraintBottom_toTopOf="@id/tvBrief"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAlias" />
 
-        <TextView
-            android:id="@+id/tvBriefLabel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/block_seam"
-            android:text="@string/plant_label_brief"
-            android:textStyle="bold"
-            android:typeface="serif"
+    <TextView
+        a:id="@+id/tvBrief"
+        a:layout_width="0dp"
+        a:layout_height="wrap_content"
+        a:text="@{plant.FBrief}"
 
-            app:layout_constraintBottom_toTopOf="@id/tvBrief"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAlias" />
+        app:layout_constraintBottom_toTopOf="@id/tvFeatureLabel"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvBriefLabel" />
 
-        <TextView
-            android:id="@+id/tvBrief"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@{plant.FBrief}"
+    <TextView
+        a:id="@+id/tvFeatureLabel"
+        a:layout_width="0dp"
+        a:layout_height="wrap_content"
+        a:paddingTop="@dimen/block_seam"
+        a:text="@string/plant_label_feature"
+        a:textStyle="bold"
+        a:typeface="serif"
 
-            app:layout_constraintBottom_toTopOf="@id/tvFeatureLabel"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvBriefLabel" />
+        app:layout_constraintBottom_toTopOf="@id/tvFeature"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvBrief" />
 
-        <TextView
-            android:id="@+id/tvFeatureLabel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/block_seam"
-            android:text="@string/plant_label_feature"
-            android:textStyle="bold"
-            android:typeface="serif"
+    <TextView
+        a:id="@+id/tvFeature"
+        a:layout_width="0dp"
+        a:layout_height="wrap_content"
+        a:text="@{plant.FFeature}"
 
-            app:layout_constraintBottom_toTopOf="@id/tvFeature"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvBrief" />
+        app:layout_constraintBottom_toTopOf="@id/tvFunctionApplicationLabel"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvFeatureLabel" />
 
-        <TextView
-            android:id="@+id/tvFeature"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@{plant.FFeature}"
+    <TextView
+        a:id="@+id/tvFunctionApplicationLabel"
+        a:layout_width="0dp"
+        a:layout_height="wrap_content"
+        a:paddingTop="@dimen/block_seam"
+        a:text="@string/plant_label_function_application"
+        a:textStyle="bold"
+        a:typeface="serif"
 
-            app:layout_constraintBottom_toTopOf="@id/tvFunctionApplicationLabel"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvFeatureLabel" />
+        app:layout_constraintBottom_toTopOf="@id/tvFunctionApplication"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvFeature" />
 
-        <TextView
-            android:id="@+id/tvFunctionApplicationLabel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/block_seam"
-            android:text="@string/plant_label_function_application"
-            android:textStyle="bold"
-            android:typeface="serif"
+    <TextView
+        a:id="@+id/tvFunctionApplication"
+        a:layout_width="0dp"
+        a:layout_height="wrap_content"
+        a:text="@{plant.FFunctionAndApplication}"
 
-            app:layout_constraintBottom_toTopOf="@id/tvFunctionApplication"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvFeature" />
+        app:layout_constraintBottom_toTopOf="@id/tvUpdateDate"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvFunctionApplicationLabel" />
 
-        <TextView
-            android:id="@+id/tvFunctionApplication"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@{plant.FFunctionAndApplication}"
+    <TextView
+        a:id="@+id/tvUpdateDateLabel"
+        a:layout_width="wrap_content"
+        a:layout_height="wrap_content"
+        a:paddingTop="@dimen/block_seam"
+        a:paddingRight="@dimen/block_seam_half"
+        a:text="@string/plant_label_update"
+        a:textStyle="bold"
+        a:typeface="serif"
 
-            app:layout_constraintBottom_toTopOf="@id/tvUpdateDate"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvFunctionApplicationLabel" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/tvUpdateDate"
+        app:layout_constraintTop_toBottomOf="@id/tvFunctionApplication" />
 
-        <TextView
-            android:id="@+id/tvUpdateDateLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/block_seam"
-            android:paddingRight="@dimen/block_seam_half"
-            android:text="@string/plant_label_update"
-            android:textStyle="bold"
-            android:typeface="serif"
+    <TextView
+        a:id="@+id/tvUpdateDate"
+        a:layout_width="0dp"
+        a:layout_height="wrap_content"
+        a:paddingLeft="@dimen/block_seam_half"
+        a:paddingTop="@dimen/block_seam"
+        a:text="@{plant.FUpdate}"
+        a:textStyle="bold"
+        a:typeface="serif"
 
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/tvUpdateDate"
-            app:layout_constraintTop_toBottomOf="@id/tvFunctionApplication" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tvUpdateDateLabel"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvFunctionApplication"
 
-        <TextView
-            android:id="@+id/tvUpdateDate"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/block_seam_half"
-            android:paddingTop="@dimen/block_seam"
-            android:text="@{plant.FUpdate}"
-            android:textStyle="bold"
-            android:typeface="serif"
+        tool:text="2017/02/05" />
 
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/tvUpdateDateLabel"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvFunctionApplication"
-
-            tool:text="2017/02/05" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+</androidx.constraintlayout.widget.ConstraintLayout>

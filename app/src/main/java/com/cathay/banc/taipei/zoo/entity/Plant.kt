@@ -2,9 +2,6 @@ package com.cathay.banc.taipei.zoo.entity
 
 import android.os.Parcel
 import android.os.Parcelable
-import androidx.databinding.BaseObservable
-import androidx.databinding.Bindable
-import com.cathay.banc.taipei.zoo.BR
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parceler
 import kotlinx.android.parcel.Parcelize
@@ -32,7 +29,7 @@ data class Plant(
     @SerializedName("F_Feature") var _fFeature: String = "",
     @SerializedName("F_Function＆Application") var _fFunctionAndApplication: String = "",
     @SerializedName("F_Update") var _fUpdate: String = "",
-) : Parcelable, CommonItem, BaseObservable() {
+) : Parcelable, CommonItem {
 
     /*
         parcelable
@@ -70,66 +67,8 @@ data class Plant(
     /*
         CommonItem
      */
-    override fun getAvatarUrl(): String = fPic01Url
-    override fun getTitle(): String = fNameCh
-    override fun getDescription(): String = fAlsoKnown
+    override fun getAvatarUrl(): String = _fPic01Url
+    override fun getTitle(): String = _fNameCh
+    override fun getDescription(): String = _fAlsoKnown
     override fun getInfo(): String = ""
-
-    /*
-        base observable
-     */
-    var id: Long
-        @Bindable get() = _id
-        set(value) {
-            _id = value
-            notifyPropertyChanged(BR.id)
-        }
-    var fPic01Url: String
-        @Bindable get() = _fPic01Url
-        set(value) {
-            _fPic01Url = value
-            notifyPropertyChanged(BR.id)
-        }
-    var fNameCh: String
-        @Bindable get() = _fNameCh
-        set(value) {
-            _fNameCh = value
-            notifyPropertyChanged(BR.id)
-        }
-    var fAlsoKnown: String
-        @Bindable get() = _fAlsoKnown
-        set(value) {
-            _fAlsoKnown = value
-            notifyPropertyChanged(BR.id)
-        }
-    var fNameLatin: String
-        @Bindable get() = _fNameLatin
-        set(value) {
-            _fNameLatin = value
-            notifyPropertyChanged(BR.id)
-        }
-    var fBrief: String
-        @Bindable get() = _fBrief
-        set(value) {
-            _fBrief = value
-            notifyPropertyChanged(BR.id)
-        }
-    var fFeature: String
-        @Bindable get() = _fFeature
-        set(value) {
-            _fFeature = value
-            notifyPropertyChanged(BR.id)
-        }
-    var fFunctionAndApplication: String
-        @Bindable get() = _fFunctionAndApplication
-        set(value) {
-            _fFunctionAndApplication = value
-            notifyPropertyChanged(BR.id)
-        }
-    var fUpdate: String
-        @Bindable get() = _fUpdate
-        set(value) {
-            _fUpdate = value
-            notifyPropertyChanged(BR.id)
-        }
 }

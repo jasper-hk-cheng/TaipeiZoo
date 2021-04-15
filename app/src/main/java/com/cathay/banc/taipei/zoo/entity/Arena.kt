@@ -2,11 +2,6 @@ package com.cathay.banc.taipei.zoo.entity
 
 import android.os.Parcel
 import android.os.Parcelable
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.databinding.BaseObservable
-import androidx.databinding.Bindable
-import com.cathay.banc.taipei.zoo.BR
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parceler
 import kotlinx.android.parcel.Parcelize
@@ -32,7 +27,7 @@ data class Arena(
     @SerializedName("E_Memo") var _eMemo: String = "無休館資訊",
     @SerializedName("E_Category") var _eCategory: Category = Category.未知分類,
     @SerializedName("E_URL") var _eUrl: String = "",
-) : Parcelable, CommonItem, BaseObservable() {
+) : Parcelable, CommonItem {
 
     /*
         parcelable
@@ -66,56 +61,10 @@ data class Arena(
     /*
         CommonItem
      */
-    override fun getAvatarUrl(): String = ePicUrl
-    override fun getTitle(): String = eName
-    override fun getDescription(): String = eInfo
-    override fun getInfo(): String = eMemo
-
-    /*
-        base observable
-     */
-    var id: Long
-        @Bindable get() = _id
-        set(value) {
-            _id = value
-            notifyPropertyChanged(BR.id)
-        }
-    var ePicUrl: String
-        @Bindable get() = _ePicUrl
-        set(value) {
-            _ePicUrl = value
-            notifyPropertyChanged(BR.ePicUrl)
-        }
-    var eName: String
-        @Bindable get() = _eName
-        set(value) {
-            _eName = value
-            notifyPropertyChanged(BR.eName)
-        }
-    var eInfo: String
-        @Bindable get() = _eInfo
-        set(value) {
-            _eInfo = value
-            notifyPropertyChanged(BR.eInfo)
-        }
-    var eMemo: String
-        @Bindable get() = _eMemo
-        set(value) {
-            _eMemo = value
-            notifyPropertyChanged(BR.eMemo)
-        }
-    var eCategory: Category
-        @Bindable get() = _eCategory
-        set(value) {
-            _eCategory = value
-            notifyPropertyChanged(BR.eCategory)
-        }
-    var eUrl: String
-        @Bindable get() = _eUrl
-        set(value) {
-            _eUrl = value
-            notifyPropertyChanged(BR.eUrl)
-        }
+    override fun getAvatarUrl(): String = _ePicUrl
+    override fun getTitle(): String = _eName
+    override fun getDescription(): String = _eInfo
+    override fun getInfo(): String = _eMemo
 }
 
 enum class Category {

@@ -36,7 +36,7 @@ class ArenaPlantFragmentActivity : AppCompatActivity() {
         val arena: Arena = intent.getParcelableExtra(INTENT_EXTRA_KEY_ARENA)
         //
         toolbar.logo = getDrawable(R.drawable.baseline_arrow_back_18)
-        toolbar.title = arena.eName
+        toolbar.title = arena._eName
         toolbar.titleMarginStart = resources.getDimension(R.dimen.toolbar_margin_start).toInt()
         toolbar.getChildAt(0).setOnClickListener { finish() }
         setSupportActionBar(toolbar)
