@@ -1,29 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:a="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    a:layout_width="match_parent"
-    a:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.appcompat.widget.Toolbar
-        a:id="@+id/toolbar"
-        a:layout_width="0dp"
-        a:layout_height="?attr/actionBarSize"
-        a:background="?attr/colorButtonNormal"
-        a:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+    <data>
 
-        app:layout_constraintBottom_toTopOf="@id/rvPlant"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <variable
+            name="plantPresenter"
+            type="com.cathay.banc.taipei.zoo.presenter.PlantPresenter" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        a:id="@+id/rvPlant"
-        a:layout_width="0dp"
-        a:layout_height="0dp"
+        <variable
+            name="plantSearchCondition"
+            type="com.cathay.banc.taipei.zoo.entity.PlantSearchCondition" />
+    </data>
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineH1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+
+            app:layout_constraintGuide_end="?attr/actionBarSize" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorButtonNormal"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+
+            app:layout_constraintBottom_toTopOf="@id/rvPlant"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPlant"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+
+            app:layout_constraintBottom_toTopOf="@id/guidelineH1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+        <ImageButton
+            android:id="@+id/btnBackHome"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/plant_list_icon_margin"
+            android:onClick="@{()->plantPresenter.getHome()}"
+            android:src="@drawable/home"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_weight="0.1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/etSearch"
+            app:layout_constraintTop_toBottomOf="@id/guidelineH1" />
+
+        <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@={plantSearchCondition.keyWord}"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_weight="0.3"
+            app:layout_constraintLeft_toRightOf="@id/btnBackHome"
+            app:layout_constraintRight_toLeftOf="@id/btnSearch"
+            app:layout_constraintTop_toBottomOf="@id/guidelineH1" />
+
+        <ImageButton
+            android:id="@+id/btnSearch"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/plant_list_icon_margin"
+            android:onClick="@{()->plantPresenter.getListWithCondition()}"
+            android:src="@drawable/search"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_weight="0.1"
+            app:layout_constraintLeft_toRightOf="@id/etSearch"
+            app:layout_constraintRight_toLeftOf="@id/separateLineV1"
+            app:layout_constraintTop_toBottomOf="@id/guidelineH1" />
+
+        <View
+            android:id="@+id/separateLineV1"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="@android:color/black"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/btnSearch"
+            app:layout_constraintRight_toLeftOf="@id/btnPrevious"
+            app:layout_constraintTop_toBottomOf="@id/guidelineH1" />
+
+        <ImageButton
+            android:id="@+id/btnPrevious"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/plant_list_icon_margin"
+            android:onClick="@{()->plantPresenter.getPreviousPage()}"
+            android:src="@drawable/chevron_left"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_weight="0.1"
+            app:layout_constraintLeft_toRightOf="@id/separateLineV1"
+            app:layout_constraintRight_toLeftOf="@id/tvCurrentPage"
+            app:layout_constraintTop_toBottomOf="@id/guidelineH1" />
+
+        <TextView
+            android:id="@+id/tvCurrentPage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:autoSizeStepGranularity="1sp"
+            android:autoSizeTextType="uniform"
+            android:gravity="center"
+            android:paddingVertical="2dp"
+            android:text="@{String.valueOf(plantSearchCondition.currentPage)}"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_weight="0.1"
+            app:layout_constraintLeft_toRightOf="@id/btnPrevious"
+            app:layout_constraintRight_toLeftOf="@id/btnNext"
+            app:layout_constraintTop_toBottomOf="@id/guidelineH1" />
+
+        <ImageButton
+            android:id="@+id/btnNext"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/plant_list_icon_margin"
+            android:onClick="@{()->plantPresenter.getNextPage()}"
+            android:src="@drawable/chevron_right"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_weight="0.1"
+            app:layout_constraintLeft_toRightOf="@id/tvCurrentPage"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guidelineH1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

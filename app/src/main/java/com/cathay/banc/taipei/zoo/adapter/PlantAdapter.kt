@@ -9,7 +9,7 @@ import com.cathay.banc.taipei.zoo.entity.Plant
 import com.cathay.banc.taipei.zoo.util.Constants.INTENT_EXTRA_KEY_PLANT
 
 class PlantAdapter(
-    private val plantList: List<Plant>,
+    val plantList: MutableList<Plant>,
 ) : BaseDataBindingAdapter() {
     override fun getDataAtPosition(position: Int): CommonItem = plantList[position]
     override fun getLayoutId(): Int = R.layout.item_arena_plant

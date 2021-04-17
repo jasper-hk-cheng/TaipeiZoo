@@ -2,8 +2,6 @@ package com.cathay.banc.taipei.zoo.entity
 
 import android.os.Parcel
 import android.os.Parcelable
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
 import com.cathay.banc.taipei.zoo.BR

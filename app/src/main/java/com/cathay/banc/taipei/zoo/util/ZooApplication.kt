@@ -20,6 +20,7 @@ class ZooApplication : Application() {
             modules(
                 arenaPresenterModule,
                 plantPresenterModule,
+                plantSearchConditionModule,
                 repositoryModule,
                 retrofitModule,
                 zooApiModule,

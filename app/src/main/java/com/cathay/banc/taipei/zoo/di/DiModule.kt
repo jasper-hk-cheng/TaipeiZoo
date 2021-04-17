@@ -2,6 +2,7 @@ package com.cathay.banc.taipei.zoo.di
 
 import com.cathay.banc.taipei.zoo.api.ZooAPI
 import com.cathay.banc.taipei.zoo.contract.ZooContract
+import com.cathay.banc.taipei.zoo.entity.PlantSearchCondition
 import com.cathay.banc.taipei.zoo.presenter.ArenaPresenter
 import com.cathay.banc.taipei.zoo.presenter.PlantPresenter
 import com.cathay.banc.taipei.zoo.repository.ZooRepository
@@ -24,7 +25,16 @@ val arenaPresenterModule = module {
 
 val plantPresenterModule = module {
     factory<PlantPresenter> { (view: ZooContract.IPlantView) ->
-        PlantPresenter(view, get<ZooRepository>())
+        PlantPresenter(view, get<ZooRepository>(), get<PlantSearchCondition>())
+    }
+}
+
+/*
+    search condition
+ */
+val plantSearchConditionModule = module {
+    factory<PlantSearchCondition> {
+        PlantSearchCondition()
     }
 }
 
@@ -57,4 +67,3 @@ val zooApiModule = module {
         get<Retrofit>().create(ZooAPI::class.java)
     }
 }
-

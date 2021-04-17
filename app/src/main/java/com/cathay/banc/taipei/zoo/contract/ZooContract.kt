@@ -2,6 +2,7 @@ package com.cathay.banc.taipei.zoo.contract
 
 import com.cathay.banc.taipei.zoo.entity.Arena
 import com.cathay.banc.taipei.zoo.entity.Plant
+import com.cathay.banc.taipei.zoo.entity.PlantSearchCondition
 
 class ZooContract {
 
@@ -14,7 +15,10 @@ class ZooContract {
     }
 
     interface IPlantPresenter {
-        fun getPlantList()
+        fun getListWithCondition()
+        fun getHome()
+        fun getNextPage()
+        fun getPreviousPage()
     }
 
     interface IPlantView {

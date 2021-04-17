@@ -1,24 +1,18 @@
 package com.cathay.banc.taipei.zoo.activity
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.databinding.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.Unbinder
-import com.cathay.banc.taipei.zoo.BR
 import com.cathay.banc.taipei.zoo.R
 import com.cathay.banc.taipei.zoo.adapter.ArenaAdapter
 import com.cathay.banc.taipei.zoo.contract.ZooContract
 import com.cathay.banc.taipei.zoo.entity.Arena
 import com.cathay.banc.taipei.zoo.presenter.ArenaPresenter
-import com.squareup.picasso.Picasso
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 

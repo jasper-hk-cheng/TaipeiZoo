@@ -8,6 +8,7 @@ interface CommonItem {
 }
 
 /*
+TODO
     class TemplateDataOF {
         val alias: ObservableField<String> = ObservableField()
         val age: ObservableField<Int> = ObservableField()

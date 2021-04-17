@@ -6,6 +6,7 @@
 
     <!--margin-->
     <dimen name="toolbar_margin_start">30dp</dimen>
+    <dimen name="plant_list_icon_margin">3dp</dimen>
 
     <!-- text size (because the autoSizeType not working...) -->
     <dimen name="text_size_title">20sp</dimen>

@@ -77,6 +77,7 @@ data class Plant(
 
     /*
         base observable
+        FIXME BR.X
      */
     var id: Long
         @Bindable get() = _id

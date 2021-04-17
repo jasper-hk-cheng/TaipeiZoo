@@ -5,6 +5,8 @@ import com.cathay.banc.taipei.zoo.entity.PlantResult
 import com.cathay.banc.taipei.zoo.util.Constants.API_QUERY_PARAM_SCOPE
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Query
+import retrofit2.http.QueryMap
 
 interface ZooAPI {
 
@@ -12,5 +14,5 @@ interface ZooAPI {
     fun getArenaList(): Call<ArenaResult>
 
     @GET("f18de02f-b6c9-47c0-8cda-50efad621c14?scope=$API_QUERY_PARAM_SCOPE")
-    fun getPlantList(): Call<PlantResult>
+    fun getPlantList(@QueryMap queryMap: Map<String, String>): Call<PlantResult>
 }

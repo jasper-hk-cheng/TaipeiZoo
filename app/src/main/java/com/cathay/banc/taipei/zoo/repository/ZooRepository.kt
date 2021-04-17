@@ -32,8 +32,8 @@ class ZooRepository(
         })
     }
 
-    override fun getPlantList(plantListCallback: IZooRepository.PlantListCallback) {
-        zooAPI.getPlantList().enqueue(object : Callback<PlantResult> {
+    override fun getPlantList(plantSearchCondition: PlantSearchCondition, plantListCallback: IZooRepository.PlantListCallback) {
+        zooAPI.getPlantList(plantSearchCondition.toQueryMap()).enqueue(object : Callback<PlantResult> {
 
             override fun onResponse(call: Call<PlantResult>, response: Response<PlantResult>) {
                 val plantList: List<Plant> = if (response.body() != null) response.body()!!.result.results else listOf()

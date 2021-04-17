@@ -14,6 +14,7 @@ import butterknife.Unbinder
 import com.cathay.banc.taipei.zoo.R
 import com.cathay.banc.taipei.zoo.adapter.PlantAdapter
 import com.cathay.banc.taipei.zoo.contract.ZooContract
+import com.cathay.banc.taipei.zoo.databinding.FragmentPlantListBinding
 import com.cathay.banc.taipei.zoo.entity.Plant
 import com.cathay.banc.taipei.zoo.presenter.PlantPresenter
 import org.koin.android.ext.android.inject
@@ -24,13 +25,7 @@ class PlantFragment : Fragment(), ZooContract.IPlantView {
     /*
         views
      */
-    private lateinit var unbinder: Unbinder
-
-    @BindView(R.id.toolbar)
-    lateinit var toolbar: Toolbar
-
-    @BindView(R.id.rvPlant)
-    lateinit var rvPlant: RecyclerView
+    private lateinit var fragmentPlantListBinding: FragmentPlantListBinding
 
     /*
         presenter
@@ -40,23 +35,28 @@ class PlantFragment : Fragment(), ZooContract.IPlantView {
     }
 
     override fun onCreateView(layoutInflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view: View = layoutInflater.inflate(R.layout.fragment_plant_list, container)
-        unbinder = ButterKnife.bind(this, view)
+        fragmentPlantListBinding = FragmentPlantListBinding.inflate(layoutInflater, container, false)
         //
-        toolbar.title = getString(R.string.plant_list_title)
+        fragmentPlantListBinding.plantPresenter = plantPresenter
+        fragmentPlantListBinding.plantSearchCondition = plantPresenter.plantSearchCondition
         //
-        rvPlant.layoutManager = LinearLayoutManager(context)
-
-        return view
+        return fragmentPlantListBinding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-        plantPresenter.getPlantList()
+        //
+        fragmentPlantListBinding.toolbar.title = getString(R.string.plant_list_title)
+        //
+        fragmentPlantListBinding.rvPlant.layoutManager = LinearLayoutManager(requireContext())
+        fragmentPlantListBinding.rvPlant.adapter = PlantAdapter(mutableListOf())
+        //
+        plantPresenter.getListWithCondition()
     }
 
     override fun onPlantListResult(plantList: List<Plant>) {
-        rvPlant.adapter = PlantAdapter(plantList)
+        val plantAdapter = fragmentPlantListBinding.rvPlant.adapter as PlantAdapter
+        plantAdapter.plantList.apply { clear() }.addAll(plantList)
+        plantAdapter.notifyDataSetChanged()
     }
 }
