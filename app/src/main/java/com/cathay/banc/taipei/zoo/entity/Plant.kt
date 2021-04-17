@@ -77,7 +77,6 @@ data class Plant(
 
     /*
         base observable
-        FIXME BR.X
      */
     var id: Long
         @Bindable get() = _id
@@ -89,48 +88,48 @@ data class Plant(
         @Bindable get() = _fPic01Url
         set(value) {
             _fPic01Url = value
-            notifyPropertyChanged(BR.id)
+            notifyPropertyChanged(BR.fPic01Url)
         }
     var fNameCh: String
         @Bindable get() = _fNameCh
         set(value) {
             _fNameCh = value
-            notifyPropertyChanged(BR.id)
+            notifyPropertyChanged(BR.fNameCh)
         }
     var fAlsoKnown: String
         @Bindable get() = _fAlsoKnown
         set(value) {
             _fAlsoKnown = value
-            notifyPropertyChanged(BR.id)
+            notifyPropertyChanged(BR.fAlsoKnown)
         }
     var fNameLatin: String
         @Bindable get() = _fNameLatin
         set(value) {
             _fNameLatin = value
-            notifyPropertyChanged(BR.id)
+            notifyPropertyChanged(BR.fNameLatin)
         }
     var fBrief: String
         @Bindable get() = _fBrief
         set(value) {
             _fBrief = value
-            notifyPropertyChanged(BR.id)
+            notifyPropertyChanged(BR.fBrief)
         }
     var fFeature: String
         @Bindable get() = _fFeature
         set(value) {
             _fFeature = value
-            notifyPropertyChanged(BR.id)
+            notifyPropertyChanged(BR.fFeature)
         }
     var fFunctionAndApplication: String
         @Bindable get() = _fFunctionAndApplication
         set(value) {
             _fFunctionAndApplication = value
-            notifyPropertyChanged(BR.id)
+            notifyPropertyChanged(BR.fFunctionAndApplication)
         }
     var fUpdate: String
         @Bindable get() = _fUpdate
         set(value) {
             _fUpdate = value
-            notifyPropertyChanged(BR.id)
+            notifyPropertyChanged(BR.fUpdate)
         }
 }
